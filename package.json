@@ -1,20 +1,27 @@
 {
-  "name": "npm-ts-example",
+  "name": "npm-ts-example-package",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+	"description": "This is an example typescript based project for publishing node module on nodejs",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"files": ["lib/**/*"],
   "scripts": {
 		"build" : "tsc",
 		"test": "jest",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"prepare" : "npm run build",
+		"prepublishOnly" : "npm test && npm run lint",
+		"preversion" : "npm run lint",
+		"version" : "npm run format && git add -A src",
+		"postversion" : "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/designcode/npm-ts-example.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["typescript", "node"],
+  "author": "A Ibrahim (designcode.me)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/designcode/npm-ts-example/issues"
