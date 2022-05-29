@@ -1,6 +1,6 @@
 {
 	"name": "npm-ts-example-package",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "This is an example typescript based project for publishing node module on nodejs",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
